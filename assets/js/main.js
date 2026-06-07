@@ -254,7 +254,7 @@ async function sendFormData(formData) {
       from_name:  formData.get('name'),
       from_email: formData.get('email'),
       subject:    formData.get('subject'),
-      message:    formData.get('message'),
+      message:    formData.get('messages'),
     });
     return;
   }
