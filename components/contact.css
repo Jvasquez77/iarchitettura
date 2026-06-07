@@ -160,6 +160,47 @@ a.contact__detail-value:hover { color: var(--c-gold); }
   letter-spacing: 0.04em;
 }
 
+/* Slider captcha */
+.form-captcha {
+  padding: var(--sp-4);
+  border: 1px solid rgba(201, 169, 110, 0.28);
+  background: rgba(244, 244, 241, 0.03);
+}
+
+.form-captcha__hint {
+  font-size: var(--text-xs);
+  color: rgba(244,244,241,0.62);
+}
+
+.form-captcha__control {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-4);
+  align-items: center;
+  margin-top: var(--sp-3);
+}
+
+.form-captcha__range {
+  width: 100%;
+  accent-color: var(--c-gold);
+}
+
+.form-captcha__range.is-error {
+  accent-color: var(--c-error);
+}
+
+.form-captcha__value {
+  min-width: 3.5ch;
+  text-align: right;
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  color: var(--c-grey-600);
+}
+
+.form-captcha.is-verified .form-captcha__value {
+  color: var(--c-gold);
+}
+
 /* Submit button */
 .form-submit {
   align-self: flex-start;

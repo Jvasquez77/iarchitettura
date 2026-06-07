@@ -139,6 +139,19 @@ function initContactForm() {
 
   const submitBtn = $('#js-form-submit');
   const statusEl  = $('#js-form-status');
+  const captchaRange = document.getElementById('form-captcha');
+  const captchaValue = document.getElementById('form-captcha-value');
+  const captchaWrap  = form.querySelector('.form-captcha');
+
+  function updateCaptchaState() {
+    if (!captchaRange || !captchaValue) return;
+    const value = Number(captchaRange.value || 0);
+    captchaValue.textContent = `${value}%`;
+    captchaWrap?.classList.toggle('is-verified', value === 100);
+  }
+
+  updateCaptchaState();
+  captchaRange?.addEventListener('input', updateCaptchaState);
 
   /* Validation rules per field */
   const validators = {
@@ -151,6 +164,8 @@ function initContactForm() {
       return (digits.length >= 7 && digits.length <= 15)
         ? '' : 'Ingresa un número telefónico válido.';
     },
+    'form-captcha': v => (Number(v) === 100
+      ? '' : 'Desliza hasta 100 para verificar que no eres un bot.'),
     'form-subject': v => (v.trim().length >= 3 ? '' : 'El asunto es requerido.'),
     'form-message': v => (v.trim().length >= 10
                            ? '' : 'El mensaje debe tener al menos 10 caracteres.'),
@@ -207,6 +222,7 @@ function initContactForm() {
       statusEl.textContent = '✓ Mensaje enviado. Te respondemos en menos de 48 h.';
       statusEl.className = 'form-status form-status--success';
       form.reset();
+      updateCaptchaState();
     } catch (err) {
       console.error('[Form] Error:', err);
       statusEl.textContent =

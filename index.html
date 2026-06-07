@@ -741,6 +741,36 @@ NAVEGACIÓN (fixed)
             ></span>
           </div>
 
+          <!-- CAPTCHA simple: desliza hasta 100 -->
+          <div class="form-group form-captcha">
+            <label for="form-captcha" class="form-label">
+              Verificación <span aria-hidden="true">*</span>
+            </label>
+            <p class="form-captcha__hint">Desliza el control hasta 100 para verificar.</p>
+            <div class="form-captcha__control">
+              <input
+                type="range"
+                id="form-captcha"
+                name="captchaSlider"
+                min="0"
+                max="100"
+                step="1"
+                value="0"
+                class="form-captcha__range"
+                required
+                aria-required="true"
+                aria-describedby="form-captcha-value form-captcha-error"
+              >
+              <span class="form-captcha__value" id="form-captcha-value">0%</span>
+            </div>
+            <span
+              class="form-error"
+              id="form-captcha-error"
+              role="alert"
+              aria-live="polite"
+            ></span>
+          </div>
+
           <!-- Submit -->
           <button
             type="submit"
