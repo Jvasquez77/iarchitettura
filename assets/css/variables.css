@@ -1,0 +1,68 @@
+/* ══════════════════════════════════════════════════════════════
+   iarchitettura — CSS Custom Properties (Design Tokens)
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ── Paleta de marca ─────────────────────────────────────── */
+  --c-black:        #0A0A0A;
+  --c-dark:         #141414;
+  --c-ivory:        #F4F4F1;
+  --c-paper:        #FAFAF8;
+  --c-gold:         #C9A96E;
+  --c-gold-muted:   #A8895A;
+
+  --c-grey-100:     #EBEBEA;
+  --c-grey-200:     #D4D4CF;
+  --c-grey-400:     #9A9490;
+  --c-grey-600:     #555550;
+  --c-grey-800:     #282828;
+
+  --c-border-light: rgba(10,10,10,0.10);
+  --c-border-dark:  rgba(244,244,241,0.10);
+  --c-error:        #E05C5C;
+
+  /* ── Tipografía ──────────────────────────────────────────── */
+  --font: 'Jost', 'Liberation Sans', Arial, sans-serif;
+
+  --fw-light:  300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semi:   600;
+
+  /* Escala fluida */
+  --text-2xs: clamp(0.60rem, 0.9vw,  0.70rem);
+  --text-xs:  clamp(0.72rem, 1.0vw,  0.82rem);
+  --text-sm:  clamp(0.85rem, 1.2vw,  0.95rem);
+  --text-md:  clamp(1.00rem, 1.5vw,  1.10rem);
+  --text-lg:  clamp(1.15rem, 2.0vw,  1.35rem);
+  --text-xl:  clamp(1.50rem, 3.0vw,  2.00rem);
+  --text-2xl: clamp(2.00rem, 4.5vw,  3.00rem);
+  --text-3xl: clamp(2.60rem, 6.0vw,  4.20rem);
+
+  /* ── Espaciado ───────────────────────────────────────────── */
+  --sp-1:  0.25rem;   --sp-2:  0.50rem;   --sp-3:  0.75rem;
+  --sp-4:  1.00rem;   --sp-5:  1.25rem;   --sp-6:  1.50rem;
+  --sp-7:  1.75rem;
+  --sp-8:  2.00rem;   --sp-10: 2.50rem;   --sp-12: 3.00rem;
+  --sp-16: 4.00rem;   --sp-20: 5.00rem;   --sp-24: 6.00rem;
+
+  --section-y: clamp(80px, 11vw, 150px);
+
+  /* ── Layout ──────────────────────────────────────────────── */
+  --max-w:   1340px;
+  --nav-h:   76px;
+  --gutter:  clamp(20px, 5vw, 64px);
+
+  /* ── Transiciones ────────────────────────────────────────── */
+  --ease:      cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --t-fast:    0.18s var(--ease);
+  --t-base:    0.35s var(--ease);
+  --t-slow:    0.70s var(--ease);
+  --t-reveal:  0.80s var(--ease);
+
+  /* ── Sombras ─────────────────────────────────────────────── */
+  --shadow-sm: 0 2px 12px  rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 32px  rgba(0,0,0,0.12);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,0.20);
+}

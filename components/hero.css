@@ -1,0 +1,177 @@
+/* ══════════════════════════════════════════════════════════════
+   iarchitettura — Component: Hero Section
+   ══════════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  min-height: 100vh; /* fallback */
+  background-color: var(--c-black);
+  color: var(--c-ivory);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: calc(var(--nav-h) + var(--sp-12)) var(--gutter) var(--sp-20);
+}
+
+/* ── Grain texture overlay ───────────────────────────────────── */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--noise);
+  opacity: 0.028;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Soft radial glow — architectural atmosphere ─────────────── */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 90% 55% at 50% 38%,
+    rgba(201, 169, 110, 0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Content wrapper ─────────────────────────────────────────── */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-10);
+  max-width: 680px;
+  width: 100%;
+}
+
+/* ── Logo mark ───────────────────────────────────────────────── */
+.hero__mark-wrap {
+  width: clamp(56px, 8vw, 88px);
+  animation: heroMarkReveal 1.4s var(--ease) both;
+}
+.hero__mark {
+  width: 100%;
+  height: auto;
+  color: var(--c-ivory);
+}
+
+/* ── Text block ──────────────────────────────────────────────── */
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-5);
+}
+
+.hero__wordmark {
+  font-size: clamp(1.9rem, 6.5vw, 5rem);
+  font-weight: var(--fw-light);
+  letter-spacing: 0.20em;
+  text-indent: 0.20em;
+  color: var(--c-ivory);
+  animation: heroTextReveal 1.2s 0.25s var(--ease) both;
+}
+
+.hero__tagline {
+  font-size: var(--text-2xs);
+  font-weight: var(--fw-normal);
+  letter-spacing: 0.30em;
+  text-indent: 0.30em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  animation: heroTextReveal 1.2s 0.40s var(--ease) both;
+}
+
+.hero__statement {
+  font-size: var(--text-md);
+  font-weight: var(--fw-light);
+  line-height: 1.85;
+  color: rgba(244,244,241,0.45);
+  margin-top: var(--sp-2);
+  animation: heroTextReveal 1.2s 0.55s var(--ease) both;
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+  padding: var(--sp-4) var(--sp-10);
+  font-size: var(--text-xs);
+  font-weight: var(--fw-normal);
+  letter-spacing: 0.20em;
+  text-indent: 0.20em;
+  text-transform: uppercase;
+  color: var(--c-ivory);
+  border: 1px solid rgba(244,244,241,0.20);
+  transition: background-color var(--t-base), border-color var(--t-base), color var(--t-base);
+  animation: heroTextReveal 1.2s 0.70s var(--ease) both;
+}
+.hero__cta:hover {
+  background-color: var(--c-gold);
+  border-color: var(--c-gold);
+  color: var(--c-black);
+}
+.hero__cta-arrow {
+  transition: transform var(--t-base);
+}
+.hero__cta:hover .hero__cta-arrow {
+  transform: translateX(4px);
+}
+
+/* ── Scroll indicator ────────────────────────────────────────── */
+.hero__scroll {
+  position: absolute;
+  bottom: var(--sp-10);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  z-index: 2;
+  animation: heroTextReveal 1.2s 1.0s var(--ease) both;
+}
+.hero__scroll-line {
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(to bottom, var(--c-gold), transparent);
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+.hero__scroll-text {
+  font-size: 0.58rem;
+  letter-spacing: 0.35em;
+  text-indent: 0.35em;
+  text-transform: uppercase;
+  color: var(--c-grey-600);
+}
+
+/* ── Keyframes ───────────────────────────────────────────────── */
+@keyframes heroMarkReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroTextReveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.35; transform: scaleY(1); }
+  50%       { opacity: 1;    transform: scaleY(0.7); }
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .hero__mark-wrap { width: 48px; }
+  .hero__cta       { padding: var(--sp-4) var(--sp-8); }
+}

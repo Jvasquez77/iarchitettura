@@ -1,0 +1,187 @@
+/* ══════════════════════════════════════════════════════════════
+   iarchitettura — Component: Navigation
+   ══════════════════════════════════════════════════════════════ */
+
+.nav {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: var(--nav-h);
+  z-index: 900;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--t-base),
+    border-color     var(--t-base),
+    backdrop-filter  var(--t-base);
+}
+
+/* ── Scrolled state (added by JS) ────────────────────────────── */
+.nav.is-scrolled {
+  background-color: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border-color: var(--c-border-dark);
+}
+
+/* ── Inner layout ────────────────────────────────────────────── */
+.nav__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Brand / Logo ────────────────────────────────────────────── */
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  color: var(--c-ivory);
+  transition: opacity var(--t-base);
+  flex-shrink: 0;
+}
+.nav__brand:hover { opacity: 0.65; }
+
+.nav__mark {
+  width: 18px;
+  height: auto;
+  color: currentColor;
+  flex-shrink: 0;
+}
+.nav__wordmark {
+  font-size: 0.92rem;
+  font-weight: var(--fw-normal);
+  letter-spacing: 0.12em;
+  color: currentColor;
+}
+
+/* ── Desktop links ───────────────────────────────────────────── */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-10);
+}
+
+.nav__link {
+  position: relative;
+  font-size: var(--text-2xs);
+  font-weight: var(--fw-normal);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-indent: 0.22em;
+  color: rgba(244,244,241,0.65);
+  transition: color var(--t-base);
+}
+.nav__link::after {
+  content: '';
+  position: absolute;
+  inset-block-end: -4px;
+  inset-inline-start: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--c-gold);
+  transition: width var(--t-base);
+}
+.nav__link:hover,
+.nav__link:focus-visible {
+  color: var(--c-ivory);
+}
+.nav__link:hover::after,
+.nav__link:focus-visible::after {
+  width: 100%;
+}
+.nav__link:focus-visible {
+  outline: 1px solid var(--c-gold);
+  outline-offset: 4px;
+}
+
+/* ── CTA link (last item, highlighted) ───────────────────────── */
+.nav__link--cta {
+  color: var(--c-gold);
+}
+.nav__link--cta::after { background-color: var(--c-gold); }
+.nav__link--cta:hover { color: var(--c-gold); }
+
+/* ── Hamburger (mobile only) ─────────────────────────────────── */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: var(--sp-2);
+  color: var(--c-ivory);
+  z-index: 1001;
+}
+.nav__hamburger span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background-color: currentColor;
+  transition: transform var(--t-base), opacity var(--t-fast);
+  transform-origin: center;
+}
+/* Open state */
+.nav__hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(3.5px) rotate(45deg);
+}
+.nav__hamburger[aria-expanded="true"] span:nth-child(2) {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+/* ── Mobile overlay ──────────────────────────────────────────── */
+.nav__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.55);
+  z-index: 899;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-slow);
+}
+.nav__overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Mobile menu panel ───────────────────────────────────────── */
+.nav__mobile {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: min(300px, 78vw);
+  background-color: var(--c-black);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-10);
+  padding: var(--sp-16) var(--sp-8);
+  transform: translateX(100%);
+  transition: transform var(--t-slow);
+}
+.nav__mobile.is-open {
+  transform: translateX(0);
+}
+
+.nav__mobile-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-8);
+}
+.nav__mobile-link {
+  font-size: var(--text-xl);
+  font-weight: var(--fw-light);
+  letter-spacing: 0.08em;
+  color: var(--c-ivory);
+  transition: color var(--t-base);
+}
+.nav__mobile-link:hover { color: var(--c-gold); }
+
+/* ── Responsive breakpoint ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav__links    { display: none; }
+  .nav__hamburger { display: flex; }
+}

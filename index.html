@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="iarchitettura — Studio de Arquitectura e Interiorismo. Diseño de alto impacto y bajo impacto ambiental. Venezuela.">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="iarchitettura — Studio di Architettura">
+  <meta property="og:description" content="Precisión técnica. Estética atemporal. Bajo impacto ambiental.">
+  <meta property="og:type"        content="website">
+
+  <title>iarchitettura — Studio di Architettura</title>
+
+  <!-- ── Google Fonts: Jost ─────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ── CSS: Tokens → Global → Componentes ────────────────── -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="components/nav.css">
+  <link rel="stylesheet" href="components/hero.css">
+  <link rel="stylesheet" href="components/about.css">
+  <link rel="stylesheet" href="components/portfolio.css">
+  <link rel="stylesheet" href="components/contact.css">
+
+  <!-- Inline SVG favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 140'><line x1='24' y1='128' x2='24' y2='50' stroke='%230A0A0A' stroke-width='5' stroke-linecap='round'/><line x1='24' y1='50' x2='76' y2='50' stroke='%230A0A0A' stroke-width='5'/><line x1='76' y1='50' x2='76' y2='128' stroke='%230A0A0A' stroke-width='5' stroke-linecap='round'/><line x1='50' y1='62' x2='50' y2='128' stroke='%230A0A0A' stroke-width='5' stroke-linecap='round'/><rect x='44.5' y='27' width='11' height='11' fill='%230A0A0A'/></svg>">
+</head>
+
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+NAVEGACIÓN (fixed)
+════════════════════════════════════════════════════════════ -->
+<header class="nav" id="nav" role="banner">
+  <nav class="nav__inner container" aria-label="Navegación principal">
+
+    <!-- Logo / Brand -->
+    <a href="#hero" class="nav__brand" aria-label="iarchitettura — Inicio">
+      <svg class="nav__mark" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <line x1="24" y1="128" x2="24" y2="50" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <line x1="24" y1="50"  x2="76" y2="50" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <line x1="76" y1="50"  x2="76" y2="128" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <line x1="50" y1="62"  x2="50" y2="128" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <rect x="44.5" y="27" width="11" height="11" fill="currentColor"/>
+      </svg>
+      <span class="nav__wordmark">iarchitettura</span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="nav__links" role="list">
+      <li><a href="#sobre-mi"  class="nav__link">Nosotros</a></li>
+      <li><a href="#portafolio" class="nav__link">Portafolio</a></li>
+      <li><a href="#contacto"  class="nav__link nav__link--cta">Contacto</a></li>
+    </ul>
+
+    <!-- Hamburger (mobile) -->
+    <button
+      class="nav__hamburger"
+      id="js-hamburger"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
+      aria-controls="js-mobile-menu"
+    >
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu panel -->
+  <div class="nav__mobile" id="js-mobile-menu" aria-label="Menú móvil">
+    <ul class="nav__mobile-links" role="list">
+      <li><a href="#sobre-mi"   class="nav__mobile-link">Nosotros</a></li>
+      <li><a href="#portafolio" class="nav__mobile-link">Portafolio</a></li>
+      <li><a href="#contacto"   class="nav__mobile-link">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+
+<main id="main-content">
+
+  <!-- ════════════════════════════════════════════════════════════
+       1. HERO SECTION
+       ════════════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Introducción">
+
+    <div class="hero__content">
+
+      <!-- Brand mark -->
+      <div class="hero__mark-wrap" aria-hidden="true">
+        <svg class="hero__mark" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+          <line x1="24" y1="128" x2="24" y2="50" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+          <line x1="24" y1="50"  x2="76" y2="50" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+          <line x1="76" y1="50"  x2="76" y2="128" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+          <line x1="50" y1="62"  x2="50" y2="128" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+          <rect x="44.5" y="27" width="11" height="11" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <div class="hero__text">
+        <h1 class="hero__wordmark">iarchitettura</h1>
+        <p class="hero__tagline">STUDIO DI ARCHITETTURA · DISEÑO INTERIOR</p>
+        <p class="hero__statement">
+          Precisión técnica.<br>
+          Estética atemporal.<br>
+          Bajo impacto ambiental.
+        </p>
+        <a href="#portafolio" class="hero__cta">
+          Ver Portafolio
+          <span class="hero__cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-line"></span>
+      <span class="hero__scroll-text">Scroll</span>
+    </div>
+
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       2. SOBRE MÍ / LA FIRMA
+       ════════════════════════════════════════════════════════════ -->
+  <section class="about" id="sobre-mi" aria-labelledby="about-heading">
+    <div class="about__inner container">
+
+      <!-- Visual / Foto -->
+      <div class="about__visual reveal-left">
+        <div class="about__photo-wrap">
+          <!--
+            📸 Coloca retrato.jpg en assets/images/ y reemplaza
+            el bloque placeholder con:
+            <img
+              src="assets/images/retrato.jpg"
+              alt="Irlanda — Fundadora &amp; Arquitecta, iarchitettura"
+              loading="lazy"
+            >
+          -->
+          <div class="about__photo-placeholder" aria-label="Foto de Irlanda, fundadora">
+            <svg viewBox="0 0 100 140" class="placeholder-mark" aria-hidden="true">
+              <line x1="24" y1="128" x2="24" y2="50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="24" y1="50"  x2="76" y2="50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="76" y1="50"  x2="76" y2="128" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="50" y1="62"  x2="50" y2="128" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="44.5" y="27" width="11" height="11" fill="currentColor"/>
+            </svg>
+            <span class="about__photo-placeholder-text">Irlanda · Fundadora</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenido -->
+      <div class="about__content">
+
+        <span class="label reveal-up">La Firma</span>
+
+        <h2 class="about__heading reveal-up delay-1" id="about-heading">
+          Irlanda
+        </h2>
+
+        <div class="about__bio">
+          <p class="about__lead reveal-up delay-2">
+            Arquitecta y diseñadora de interiores. Fundé iarchitettura con
+            una convicción: los espacios que habitamos deben ser precisos,
+            hermosos y respetuosos con el entorno.
+          </p>
+          <p class="reveal-up delay-3">
+            El estudio trabaja desde la disciplina del detalle y el rigor
+            técnico — sin concesiones a las tendencias, con absoluto respeto
+            por los materiales. Cada proyecto es una respuesta singular al
+            cliente, al lugar y al tiempo.
+          </p>
+          <p class="reveal-up delay-4">
+            Trabajo con clientes que valoran la calidad sobre la cantidad,
+            que entienden que el diseño de alto impacto no compromete el
+            planeta y que buscan espacios construidos para durar.
+          </p>
+        </div>
+
+        <div class="about__quote-wrap reveal-up">
+          <blockquote class="about__quote">
+            "Diseño habitable de alto impacto estético y mínimo impacto ambiental:
+            espacios precisos, elegantes y construidos para perdurar."
+          </blockquote>
+        </div>
+
+        <!-- Valores de marca -->
+        <div class="about__values reveal-up">
+          <div class="about__value">
+            <span class="about__value-num">I</span>
+            <div class="about__value-content">
+              <h4 class="about__value-title">Innovación</h4>
+              <p class="about__value-desc">Soluciones que redefinen el espacio desde los principios, no desde las tendencias establecidas.</p>
+            </div>
+          </div>
+          <div class="about__value">
+            <span class="about__value-num">II</span>
+            <div class="about__value-content">
+              <h4 class="about__value-title">Precisión</h4>
+              <p class="about__value-desc">Cada decisión de diseño es deliberada y ejecutada con exactitud técnica irreprochable.</p>
+            </div>
+          </div>
+          <div class="about__value">
+            <span class="about__value-num">III</span>
+            <div class="about__value-content">
+              <h4 class="about__value-title">Impacto</h4>
+              <p class="about__value-desc">Proyectos que transforman la manera de vivir, trabajar y experimentar un lugar.</p>
+            </div>
+          </div>
+          <div class="about__value">
+            <span class="about__value-num">IV</span>
+            <div class="about__value-content">
+              <h4 class="about__value-title">Durabilidad</h4>
+              <p class="about__value-desc">Arquitectura concebida para el largo plazo — material, estética y ambientalmente.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estadísticas clave -->
+        <div class="about__stats reveal-up">
+          <div class="stat">
+            <span class="stat__num">100%</span>
+            <span class="stat__label">Bajo impacto ambiental en cada proyecto</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">Irlanda</span>
+            <span class="stat__label">Fundadora · Arquitecta &amp; Diseñadora de Interiores</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">VE · INT</span>
+            <span class="stat__label">Venezuela · Alcance Internacional</span>
+          </div>
+        </div>
+
+        <!-- Disciplinas -->
+        <div class="about__disciplines reveal-up">
+          <span class="discipline-tag">Arquitectura residencial</span>
+          <span class="discipline-tag">Interiorismo</span>
+          <span class="discipline-tag">Diseño de interiores</span>
+          <span class="discipline-tag">Diseño bioclimático</span>
+          <span class="discipline-tag">Diseño sostenible</span>
+          <span class="discipline-tag">Renders &amp; conceptos</span>
+        </div>
+
+        <a href="#contacto" class="btn btn--outline reveal-up">
+          Trabajemos juntos
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       3. PORTAFOLIO
+       3 contenedores: 2 proyectos ejecutados + 1 concepto
+       Imágenes: assets/images/portfolio/
+       ════════════════════════════════════════════════════════════ -->
+  <section class="portfolio" id="portafolio" aria-labelledby="portfolio-heading">
+
+    <!-- Encabezado de sección -->
+    <div class="portfolio__header container">
+      <span class="label reveal-up">Portafolio</span>
+      <h2 class="portfolio__heading reveal-up delay-1" id="portfolio-heading">
+        Proyectos
+      </h2>
+      <p class="portfolio__sub reveal-up delay-2">
+        Donde la técnica y el concepto convergen en espacios que duran.
+      </p>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────────────────
+         CATEGORÍA 01 — PROYECTOS EJECUTADOS
+         ────────────────────────────────────────────────────── -->
+    <div class="portfolio__category" data-category="ejecutados">
+
+      <div class="portfolio__cat-header container">
+        <span class="portfolio__cat-label">Proyectos Ejecutados</span>
+        <span class="portfolio__cat-count">01 — 04</span>
+      </div>
+
+      <div class="portfolio__grid container">
+
+        <!-- ╔══════════════════════════════╗
+             ║  PROYECTO 01                 ║
+             ╚══════════════════════════════╝ -->
+        <article class="project-card reveal" data-project="01">
+
+          <figure class="project-card__media" aria-label="Proyecto 01">
+            <img class="project-card__img"
+                 src="assets/images/portfolio/proyecto-01.jpg"
+                 alt="Nombre del Proyecto — Venezuela, 2024"
+                 loading="lazy">
+
+            <div class="project-card__overlay" aria-hidden="true">
+              <span class="project-card__overlay-text">Ver proyecto</span>
+            </div>
+          </figure>
+
+          <div class="project-card__meta">
+            <span class="project-card__index">01</span>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Renovacion Intima De Baños</h3>
+              <p class="project-card__location">Venezuela — 2026</p>
+              <p class="project-card__type">Residencial · Interiorismo</p>
+            </div>
+          </div>
+
+        </article><!-- /PROYECTO 01 -->
+
+
+        <!-- ╔══════════════════════════════╗
+             ║  PROYECTO 02                 ║
+             ╚══════════════════════════════╝ -->
+        <article class="project-card reveal delay-2" data-project="02">
+
+          <figure class="project-card__media" aria-label="Proyecto 02">
+            <img class="project-card__img"
+                 src="assets/images/portfolio/proyecto-02.jpg"
+                 alt="Nombre del Proyecto — Venezuela, 2023"
+                 loading="lazy">
+
+            <div class="project-card__overlay" aria-hidden="true">
+              <span class="project-card__overlay-text">Ver proyecto</span>
+            </div>
+          </figure>
+
+          <div class="project-card__meta">
+            <span class="project-card__index">02</span>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Renovacion Intima De Baños</h3>
+              <p class="project-card__location">Venezuela — 2026</p>
+              <p class="project-card__type">Residencial · Interiorismo</p>
+            </div>
+          </div>
+
+        </article><!-- /PROYECTO 02 -->
+
+
+        <!-- PROYECTO 03 -->
+        <article class="project-card project-card--landscape reveal" data-project="03">
+
+          <figure class="project-card__media" aria-label="Proyecto 03">
+            <!--
+              📸 Imagen → assets/images/portfolio/proyecto-03.jpg  (ratio 16:9)
+              Reemplazar el div.project-card__placeholder con:
+              <img class="project-card__img"
+                   src="assets/images/portfolio/proyecto-03.jpg"
+                   alt="Nombre del Proyecto — Venezuela, 2025"
+                   loading="lazy">
+            -->
+            <div class="project-card__placeholder">
+              <svg viewBox="0 0 100 140" class="placeholder-mark" aria-hidden="true">
+                <line x1="24" y1="128" x2="24" y2="50" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <line x1="24" y1="50"  x2="76" y2="50" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <line x1="76" y1="50"  x2="76" y2="128" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <line x1="50" y1="62"  x2="50" y2="128" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <rect x="44.5" y="27" width="11" height="11" fill="currentColor"/>
+              </svg>
+              <span class="project-card__placeholder-label">Imagen · Proyecto 03</span>
+            </div>
+            <div class="project-card__overlay" aria-hidden="true">
+              <span class="project-card__overlay-text">Ver proyecto</span>
+            </div>
+          </figure>
+
+          <div class="project-card__meta">
+            <span class="project-card__index">03</span>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Nombre del Proyecto</h3>
+              <p class="project-card__location">Venezuela — 2025</p>
+              <p class="project-card__type">Residencial · Interiorismo</p>
+            </div>
+          </div>
+
+        </article><!-- /PROYECTO 03 -->
+
+
+        <!-- PROYECTO 04 -->
+        <article class="project-card project-card--landscape reveal delay-2" data-project="04">
+
+          <figure class="project-card__media" aria-label="Proyecto 04">
+            <!--
+              📸 Imagen → assets/images/portfolio/proyecto-04.jpg  (ratio 16:9)
+              Reemplazar el div.project-card__placeholder con:
+              <img class="project-card__img"
+                   src="assets/images/portfolio/proyecto-04.jpg"
+                   alt="Nombre del Proyecto — Venezuela, 2025"
+                   loading="lazy">
+            -->
+            <div class="project-card__placeholder">
+              <svg viewBox="0 0 100 140" class="placeholder-mark" aria-hidden="true">
+                <line x1="24" y1="128" x2="24" y2="50" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <line x1="24" y1="50"  x2="76" y2="50" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <line x1="76" y1="50"  x2="76" y2="128" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <line x1="50" y1="62"  x2="50" y2="128" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <rect x="44.5" y="27" width="11" height="11" fill="currentColor"/>
+              </svg>
+              <span class="project-card__placeholder-label">Imagen · Proyecto 04</span>
+            </div>
+            <div class="project-card__overlay" aria-hidden="true">
+              <span class="project-card__overlay-text">Ver proyecto</span>
+            </div>
+          </figure>
+
+          <div class="project-card__meta">
+            <span class="project-card__index">04</span>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Nombre del Proyecto</h3>
+              <p class="project-card__location">Venezuela — 2025</p>
+              <p class="project-card__type">Residencial · Interiorismo</p>
+            </div>
+          </div>
+
+        </article><!-- /PROYECTO 04 -->
+
+      </div><!-- /portfolio__grid -->
+    </div><!-- /CATEGORÍA 01 -->
+
+
+    <!-- ──────────────────────────────────────────────────────
+         DIVISOR VISUAL (separa proyectos de conceptos)
+         ────────────────────────────────────────────────────── -->
+    <div class="portfolio__divider container" aria-hidden="true">
+      <span class="portfolio__divider-line"></span>
+      <span class="portfolio__divider-mark">
+        <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+          <line x1="24" y1="128" x2="24" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <line x1="24" y1="50"  x2="76" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <line x1="76" y1="50"  x2="76" y2="128" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <line x1="50" y1="62"  x2="50" y2="128" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <rect x="44.5" y="27" width="11" height="11" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="portfolio__divider-line"></span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────────────────
+         CATEGORÍA 02 — CONCEPTOS EN DESARROLLO
+         ────────────────────────────────────────────────────── -->
+    <div class="portfolio__category" data-category="conceptos">
+
+      <div class="portfolio__cat-header container">
+        <span class="portfolio__cat-label portfolio__cat-label--concept">
+          Conceptos en Desarrollo
+        </span>
+        <span class="portfolio__cat-count">03</span>
+      </div>
+
+      <div class="portfolio__grid portfolio__grid--featured container">
+
+        <!-- ╔══════════════════════════════╗
+             ║  CONCEPTO 01                 ║
+             ╚══════════════════════════════╝ -->
+        <article class="project-card project-card--featured reveal" data-project="03">
+
+          <figure class="project-card__media" aria-label="Concepto 01 en desarrollo">
+            <!--
+              📸 Render → assets/images/portfolio/concepto-01.jpg  (ratio 16:9)
+              Reemplazar el div.project-card__placeholder con:
+              <img class="project-card__img"
+                   src="assets/images/portfolio/concepto-01.jpg"
+                   alt="Nombre del Concepto — Render 2025"
+                   loading="lazy">
+            -->
+            <div class="project-card__placeholder project-card__placeholder--concept">
+              <svg viewBox="0 0 100 140" class="placeholder-mark" aria-hidden="true">
+                <line x1="24" y1="128" x2="24" y2="50" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <line x1="24" y1="50"  x2="76" y2="50" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <line x1="76" y1="50"  x2="76" y2="128" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <line x1="50" y1="62"  x2="50" y2="128" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <rect x="44.5" y="27" width="11" height="11" fill="currentColor"/>
+              </svg>
+              <span class="project-card__placeholder-label">
+                Render · Concepto 01 — En Desarrollo
+              </span>
+            </div>
+
+            <div class="project-card__overlay" aria-hidden="true">
+              <span class="project-card__overlay-text">Ver concepto</span>
+            </div>
+          </figure>
+
+          <div class="project-card__meta">
+            <span class="project-card__index">03</span>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Nombre del Concepto</h3>
+              <p class="project-card__location">En desarrollo — 2025</p>
+              <p class="project-card__type">Render · Diseño conceptual</p>
+            </div>
+            <span class="project-card__badge">Próximamente</span>
+          </div>
+
+        </article><!-- /CONCEPTO 01 -->
+
+      </div>
+    </div><!-- /CATEGORÍA 02 -->
+
+  </section><!-- /PORTAFOLIO -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       4. CONTACTO + FORMULARIO
+       ════════════════════════════════════════════════════════════ -->
+  <section class="contact" id="contacto" aria-labelledby="contact-heading">
+    <div class="contact__inner container">
+
+      <!-- Información de contacto -->
+      <div class="contact__info">
+        <span class="label label--dark reveal-up">Contacto</span>
+
+        <h2 class="contact__heading reveal-up delay-1" id="contact-heading">
+          Hablemos<br>de tu proyecto.
+        </h2>
+
+        <p class="contact__intro reveal-up delay-2">
+          Cada proyecto comienza con una conversación.
+          Cuéntanos qué tienes en mente.
+        </p>
+
+        <div class="contact__details">
+          <div class="contact__detail reveal-up delay-2">
+            <span class="contact__detail-label">Email</span>
+            <a href="mailto:contact@iarchitettura.com" class="contact__detail-value">
+              contact@iarchitettura.com
+            </a>
+          </div>
+          <div class="contact__detail reveal-up delay-3">
+            <span class="contact__detail-label">Instagram</span>
+            <a
+              href="https://instagram.com/iarchitettura"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact__detail-value"
+            >@iarchitettura</a>
+          </div>
+          <div class="contact__detail reveal-up delay-4">
+            <span class="contact__detail-label">Ubicación</span>
+            <span class="contact__detail-value">Venezuela<br>
+              <span class="contact__detail-sub">Proyectos nacionales e internacionales</span>
+            </span>
+          </div>
+        </div>
+
+        <p class="contact__note reveal-up">
+          Respondemos en menos de 48 horas.
+        </p>
+      </div><!-- /info -->
+
+
+      <!-- ──────────────────────────────────────────────────────
+           FORMULARIO DE CONTACTO
+           ──────────────────────────────────────────────────────
+           INTEGRACIÓN DE EMAIL — Edita CONFIG en assets/js/main.js
+           Ver comentarios detallados en ese archivo.
+
+           Resumen rápido:
+           · Formspree → pon tu Form ID en CONFIG.formspreeId
+           · EmailJS   → pon Service/Template/PublicKey en CONFIG
+           · API propia → pon la URL en CONFIG.apiEndpoint
+           ────────────────────────────────────────────────────── -->
+      <div class="reveal-right">
+        <form
+          id="contact-form"
+          class="contact-form"
+          action="#"
+          method="POST"
+          novalidate
+          aria-label="Formulario de contacto"
+        >
+          <!-- Honeypot anti-spam (oculto para bots, invisible para personas) -->
+          <input
+            type="text"
+            name="_honeypot"
+            class="form-honeypot"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          >
+
+          <!-- Nombre + Email en la misma fila -->
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="form-name" class="form-label">
+                Nombre completo <span aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="form-name"
+                name="name"
+                class="form-input"
+                placeholder="Tu nombre"
+                required
+                autocomplete="name"
+                aria-required="true"
+                aria-describedby="form-name-error"
+              >
+              <span
+                class="form-error"
+                id="form-name-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <div class="form-group">
+              <label for="form-email" class="form-label">
+                Correo electrónico <span aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email"
+                id="form-email"
+                name="email"
+                class="form-input"
+                placeholder="tu@correo.com"
+                required
+                autocomplete="email"
+                aria-required="true"
+                aria-describedby="form-email-error"
+              >
+              <span
+                class="form-error"
+                id="form-email-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+          </div><!-- /form-row -->
+
+          <!-- Asunto -->
+          <div class="form-group">
+            <label for="form-subject" class="form-label">
+              Asunto <span aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              id="form-subject"
+              name="subject"
+              class="form-input"
+              placeholder="¿En qué podemos ayudarte?"
+              required
+              aria-required="true"
+              aria-describedby="form-subject-error"
+            >
+            <span
+              class="form-error"
+              id="form-subject-error"
+              role="alert"
+              aria-live="polite"
+            ></span>
+          </div>
+
+          <!-- Mensaje -->
+          <div class="form-group">
+            <label for="form-message" class="form-label">
+              Mensaje <span aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="form-message"
+              name="message"
+              class="form-input form-textarea"
+              placeholder="Cuéntanos sobre tu proyecto..."
+              rows="5"
+              required
+              aria-required="true"
+              aria-describedby="form-message-error"
+            ></textarea>
+            <span
+              class="form-error"
+              id="form-message-error"
+              role="alert"
+              aria-live="polite"
+            ></span>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            id="js-form-submit"
+            class="btn btn--primary form-submit"
+          >
+            <span class="btn__text">Enviar mensaje</span>
+            <span class="btn__loading" aria-hidden="true">Enviando…</span>
+          </button>
+
+          <!-- Status (success / error) -->
+          <div
+            class="form-status"
+            id="js-form-status"
+            role="status"
+            aria-live="polite"
+          ></div>
+
+        </form>
+      </div><!-- /reveal-right -->
+
+    </div>
+  </section><!-- /CONTACTO -->
+
+</main>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner container">
+
+    <div class="footer__brand">
+      <svg class="footer__mark" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="24" y1="128" x2="24" y2="50" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <line x1="24" y1="50"  x2="76" y2="50" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <line x1="76" y1="50"  x2="76" y2="128" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <line x1="50" y1="62"  x2="50" y2="128" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <rect x="44.5" y="27" width="11" height="11" fill="currentColor"/>
+      </svg>
+      <span class="footer__wordmark">iarchitettura</span>
+    </div>
+
+    <p class="footer__tagline">STUDIO DI ARCHITETTURA · DISEÑO INTERIOR</p>
+    <p class="footer__copy">© 2026 iarchitettura. Todos los derechos reservados.</p>
+
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ════════════════════════════════════════════════════════════ -->
+<script src="assets/js/main.js"></script>
+
+<!--
+  NOTA — Si usas EmailJS, agrega el SDK aquí (antes de main.js):
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+-->
+
+</body>
+</html>
