@@ -39,6 +39,33 @@ const CONFIG = {
 const $  = (s, ctx = document) => ctx.querySelector(s);
 const $$ = (s, ctx = document) => Array.from(ctx.querySelectorAll(s));
 
+const NETWORK_TIMEOUT_MS = 10000;
+const MAX_NETWORK_RETRIES = 1;
+
+function cloneFormData(formData) {
+  const copy = new FormData();
+  for (const [key, value] of formData.entries()) copy.append(key, value);
+  return copy;
+}
+
+async function fetchWithTimeout(url, options = {}, timeoutMs = NETWORK_TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } catch (err) {
+    if (err?.name === 'AbortError') {
+      const timeoutErr = new Error('Timeout de red');
+      timeoutErr.code = 'ETIMEDOUT';
+      throw timeoutErr;
+    }
+    throw err;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
 /* ─────────────────────────────────────────────────────────────
    NAVEGACIÓN
    ───────────────────────────────────────────────────────────── */
@@ -226,6 +253,7 @@ function initContactForm() {
     } catch (err) {
       console.error('[Form] Error:', err);
       statusEl.textContent =
+        err?.userMessage ||
         'No se pudo enviar el mensaje. Intenta de nuevo o escríbenos directamente.';
       statusEl.className = 'form-status form-status--error';
     } finally {
@@ -245,19 +273,40 @@ async function sendFormData(formData) {
 
   /* ── OPCIÓN 1: FORMSPREE ─────────────────────────────────── */
   if (CONFIG.formspreeId) {
-    const res = await fetch(`https://formspree.io/f/${CONFIG.formspreeId}`, {
-      method: 'POST',
-      body: formData,
-      headers: { Accept: 'application/json' },
-    });
-    if (!res.ok) throw new Error(`Formspree: HTTP ${res.status}`);
-    return;
+    const endpoint = `https://formspree.io/f/${CONFIG.formspreeId}`;
+
+    for (let attempt = 0; attempt <= MAX_NETWORK_RETRIES; attempt++) {
+      try {
+        const res = await fetchWithTimeout(endpoint, {
+          method: 'POST',
+          body: cloneFormData(formData),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (!res.ok) {
+          if (res.status >= 500 && attempt < MAX_NETWORK_RETRIES) continue;
+          throw new Error(`Formspree: HTTP ${res.status}`);
+        }
+        return;
+      } catch (err) {
+        const isTimeout = err?.code === 'ETIMEDOUT';
+        const isNetwork = err?.name === 'TypeError';
+        const canRetry = attempt < MAX_NETWORK_RETRIES && (isTimeout || isNetwork);
+        if (canRetry) continue;
+
+        if (isTimeout) {
+          err.userMessage =
+            'La conexion esta lenta. Intenta de nuevo en unos segundos.';
+        }
+        throw err;
+      }
+    }
   }
 
   /* ── OPCIÓN 2: API PROPIA ────────────────────────────────── */
   if (CONFIG.apiEndpoint) {
     const body = Object.fromEntries(formData.entries());
-    const res = await fetch(CONFIG.apiEndpoint, {
+    const res = await fetchWithTimeout(CONFIG.apiEndpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
