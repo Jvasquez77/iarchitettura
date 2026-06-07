@@ -20,7 +20,7 @@
 */
 const CONFIG = {
   /* ← ACTIVAR: reemplazar null con el Form ID de Formspree */
-  formspreeId:      null,   // 'xpzbkwlr'
+  formspreeId:      'mrevpogj',
 
   /* EmailJS (alternativa) */
   emailServiceId:   null,
