@@ -635,6 +635,66 @@ NAVEGACIÓN (fixed)
 
           </div><!-- /form-row -->
 
+          <!-- Código de área + Teléfono -->
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="form-area-code" class="form-label">
+                Código de área <span aria-hidden="true">*</span>
+              </label>
+              <select
+                id="form-area-code"
+                name="areaCode"
+                class="form-input"
+                required
+                aria-required="true"
+                aria-describedby="form-area-code-error"
+              >
+                <option value="">Selecciona</option>
+                <option value="+58">+58 Venezuela</option>
+                <option value="+1">+1 Estados Unidos / Canadá</option>
+                <option value="+34">+34 España</option>
+                <option value="+39">+39 Italia</option>
+                <option value="+57">+57 Colombia</option>
+                <option value="+52">+52 México</option>
+                <option value="+54">+54 Argentina</option>
+                <option value="+56">+56 Chile</option>
+                <option value="+51">+51 Perú</option>
+              </select>
+              <span
+                class="form-error"
+                id="form-area-code-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <div class="form-group">
+              <label for="form-phone" class="form-label">
+                Número telefónico <span aria-hidden="true">*</span>
+              </label>
+              <input
+                type="tel"
+                id="form-phone"
+                name="phone"
+                class="form-input"
+                placeholder="4121234567"
+                required
+                autocomplete="tel-national"
+                inputmode="tel"
+                aria-required="true"
+                aria-describedby="form-phone-error"
+              >
+              <span
+                class="form-error"
+                id="form-phone-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+          </div><!-- /form-row -->
+
           <!-- Asunto -->
           <div class="form-group">
             <label for="form-subject" class="form-label">

@@ -145,6 +145,12 @@ function initContactForm() {
     'form-name':    v => (v.trim().length >= 2 ? '' : 'Ingresa tu nombre completo.'),
     'form-email':   v => (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())
                            ? '' : 'Ingresa un correo electrónico válido.'),
+    'form-area-code': v => (v.trim() ? '' : 'Selecciona un código de área.'),
+    'form-phone':   v => {
+      const digits = v.replace(/\D/g, '');
+      return (digits.length >= 7 && digits.length <= 15)
+        ? '' : 'Ingresa un número telefónico válido.';
+    },
     'form-subject': v => (v.trim().length >= 3 ? '' : 'El asunto es requerido.'),
     'form-message': v => (v.trim().length >= 10
                            ? '' : 'El mensaje debe tener al menos 10 caracteres.'),
